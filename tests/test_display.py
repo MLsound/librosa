@@ -108,7 +108,7 @@ def Csync(C, beats):
 
 def test_axes_type_validation():
     with pytest.raises(librosa.ParameterError):
-        librosa.display.formatting._check_axes("not_an_axes")
+        librosa.display.formatting._check_axes("not_an_axes")  # type: ignore
 
 @pytest.mark.xfail(raises=librosa.ParameterError)
 def test_unknown_time_unit(y):
@@ -237,7 +237,7 @@ def test_chroma(S_abs, sr):
 
 def test_svara_parameter_error():
     with pytest.raises(librosa.ParameterError):
-        librosa.display.formatting.SvaraFormatter(Sa=None)
+        librosa.display.formatting.SvaraFormatter(Sa=None)  # type: ignore
 
 def test_chroma_fallback_defaults():
     fig, ax = plt.subplots()
@@ -1491,7 +1491,7 @@ def test_axis_fallbacks():
     
     handler.create_artists(
         leg, 
-        orig_handle=proxy, 
+        orig_handle=proxy,  # type: ignore 
         xdescent=0, 
         ydescent=0, 
         width=10, 
@@ -2195,7 +2195,7 @@ def test_mp_setup_axes_create(shape, orient, output_shape, axes_shape):
     assert fig is not None
     assert axes.shape == axes_shape
     assert out_shape == output_shape
-    plt.close(fig)
+    plt.close(fig)  # type: ignore
 
 
 def test_mp_setup_axes_with_fig():
@@ -2249,7 +2249,7 @@ def test_mp_setup_axes_array_input(orient, axes_in_shape, axes_out_shape, output
     assert fig_out is fig
     assert axes_out.shape == axes_out_shape
     assert out_shape == output_shape
-    plt.close(fig)
+    plt.close(fig)  # type: ignore
 
 
 def test_mp_setup_axes_scalar_input():

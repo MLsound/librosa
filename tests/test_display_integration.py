@@ -104,7 +104,7 @@ def test_pipeline_pyin_to_wavef0(audio_data):
     y, sr = audio_data
     # Extract f0 using pyin
     f0, voiced_flag, voiced_probs = librosa.pyin(
-        y, fmin=librosa.note_to_hz('C2'), fmax=librosa.note_to_hz('C7')
+        y, fmin=float(librosa.note_to_hz('C2')), fmax=float(librosa.note_to_hz('C7'))
     )
     
     fig, ax = plt.subplots()
